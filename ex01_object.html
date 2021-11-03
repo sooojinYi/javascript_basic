@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //생성자 함수 생성
+        function Student(name, age, math_score, en_score){
+            this.name = name;
+            this.age = age;
+            this.math_score = math_score;
+            this.en_score = en_score;
+        }
+        //객체(인스턴스) 만들기
+        const Student1 = new Student('민정', 22, 90, 60);
+       const Student2 = new Student('지현', 23, 60, 70);
+       const Student3 = new Student('영웅', 24, 70, 60);
+       const Student4 = new Student('정민', 25, 80, 70);
+       const Student5 = new Student('인진', 26, 60, 90);
+       //배열 students 만들기
+       var students = [Student1,Student2,Student3,Student4,Student5];
+       console.log(students);
+
+       for(let i=0; i<students.length; i++){
+           console.log(students[i].name);
+       }
+
+       //for of
+       let arr = ['🍉','🍊','🍓','🥝']
+       for(let i of arr){
+           console.log(i);
+       }
+       //foreach 
+       //배열변수.foreach(function(){
+
+       //})
+       arr.forEach(function(value,index,배열그자체){
+        console.log(value,index,배열그자체);
+       })
+       //객체
+       for(let i in Student1){
+           console.log(i,Student1[i])
+       }
+    </script>
+</body>
+</html>

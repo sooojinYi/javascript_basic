@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //01.literal 과 properties
+        //오브젝트는 키와 벨류의 집합이다. Object ={key:value}
+        let obj1 = {}; //object literal 구문
+        let obj2 = new Object();  //object constructor 구문
+
+        let sujin = {
+            name: "수진",
+            age: "25"
+        }
+        function 프린트(obj){
+            console.log(obj.name)
+        }
+        
+        //02. key 접근법
+        //.을 이용해서 접근
+        //[]안에 스트링 타입으로 키를 지정
+        //.을쓸때는 코딩하는 순간 그 값을 받아오고 싶을때
+        //[]런타임에서 결정할때 / 실시간으로 원하는 키값을 받아오고 싶을때
+        console.log(sujin.name);
+        console.log(sujin['name']);
+
+        function printValue(obj, key){
+            console.log(obj[key]);
+        }
+        printValue(sujin,'name')
+        let 벨라 = {
+            name: '벨라',
+            agr: 72
+        }
+        console.log(벨라.name);
+        console.log(벨라['name']);
+
+        const student1 = {
+            name: "bob",
+            age: 20
+        }
+        //오브젝트를 생성하는 함수
+        function makeStudent(name, age){
+            return {
+                name: name,
+                age: age
+            }
+        }
+        //생성자 함수 constructor function
+        function Student(name,age){
+            //this = {};
+            this.name = name;
+            this.age = age;
+            //return this;
+        }
+       const student2 = new Student('abc',22);
+       console.log(student2);
+
+       let dog = {
+           color: 'white',
+           age: 2,
+           sound: function(){
+               console.log('멍멍');
+           },
+           printName: function(){
+               console.log(`이름은 ${this.name}입니다.`);
+           }
+       }
+       function Dog(color, name, age){
+            this.color = color;
+            this.name = name;
+            this.age = age;
+            this.sound = function(){
+                console.log('멍멍');
+            }
+            this.printName = function(){
+                console.log(`이름은 ${this.name} 입니다.`)
+            }
+       }
+       const dog2 = new Dog('흰색','크림',5);
+       const dog3 = {
+           color: "흰색",
+           name: "크림",
+           age: 5,
+           sound: function(){
+            console.log('멍멍');
+           }
+       }
+       console.log(dog2);
+    </script>
+</body>
+</html>

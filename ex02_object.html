@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Calculator(){
+            this.read = function(num1,num2){
+                let num1 = prompt('수를 입력하시오')
+                let num2 = prompt('수를 입력하시오')
+                alert(Number(num1),Number(num2))
+            }
+            this.sum = function(i,j){
+                let i = prompt('수를 입력하시오')
+                let j = prompt('수를 입력하시오')
+                alert(Number(i)+Number(j))
+            }
+            this.mul = function(k,l){
+                let k = prompt('수를 입력하시오')
+                let l = prompt('수를 입력하시오')
+                alert(Number(k)/Number(l))
+            }
+        }
+        let cal = new Calculator();
+        cal.sum(4,6);
+    </script>
+</body>
+</html>
