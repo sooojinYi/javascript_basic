@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //가위바위보 기계생성
+        function kawibawibo() {
+            let user = String(prompt('가위, 바위, 보 게임시작!'));
+            if(user==String('가위') || user==String('바위') || user==String('보')){
+               //랜덤 기계생성
+                const all = ['가위', '바위', '보']
+               function random(array){
+                   const random = Math.floor(Math.random() * array.length);
+                   return array[random];
+               }
+               //변수에 값 적용
+               let x = user;
+               let y = random(all);
+
+                console.log(`당신:${x}, 컴퓨터:${y} 입니다`)
+
+                //if(비겼을때) else(값이 다른경우)
+                if(x === y) {
+                    console.log('비겼습니다.')
+                }else if(x==='가위' && y ==='보'){
+                    console.log('당신이 이겼습니다')
+                }else if(x==='바위' && y ==='가위'){
+                    console.log('당신이 이겼습니다')
+                }else if(x==='보' && y ==='바위'){
+                    console.log('당신이 이겼습니다')
+                }else if(x==='가위' && y ==='바위'){
+                    console.log('컴퓨터가 이겼습니다')
+                }else if(x==='바위' && y ==='보'){
+                    console.log('컴퓨터가 이겼습니다')
+                }else if(x==='보' && y ==='가위'){
+                    console.log('컴퓨터가 이겼습니다')
+                }
+            }else{
+                prompt('잘못 입력하셨습니다.');
+            }
+        }
+        kawibawibo();
+    </script>
+</body>
+</html>

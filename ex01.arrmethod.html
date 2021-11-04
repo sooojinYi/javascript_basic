@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let fruits = ['사과','딸기','포도','배','귤'];
+        console.log(fruits)
+        //문자로 정의하기 join()
+        let fruitsStr = fruits.join(',');
+        console.log(fruitsStr);
+        console.log(typeof fruitsStr);
+        //문자를 배열로 변경하기 split()
+        let str = "a,b,c,d,e,f";
+        let arr1 = str.split(',',3);
+        console.log(arr1);
+        //해당조건이 맞는 하나의 값을 찾아서 반환 find()
+        let score = [60,50,34,67,57];
+        let result = score.find((sc)=> sc === 34);
+        console.log(result);
+        //해당조건이 해당되는 모든값을 찾아서 배열로 반환 filter()
+        let result2 = score.filter(function(sc){
+            return sc >= 30;
+        })
+        console.log(result2);
+        //해당조건에 배열값이 하나라도 맞으면 true 반환 some()
+        let result3 = score.some(function(sc){
+            return sc > 30;
+        })
+        console.log(result3)
+        // 해당조건에 배열값 모두가 맞으면 true 반환 every()
+        let result4 = score.every(function(sc){
+            return sc > 60;
+        })
+        console.log(result4)
+    </script>
+</body>
+</html>

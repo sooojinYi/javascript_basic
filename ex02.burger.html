@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         //01. Burger 생성자 함수를 만들기
+        //name, price, size
+        function Burger(name, price, size){
+            this.name = name;
+            this.price = price;
+            this.size = size;
+        }
+        //02. 객체 만들기
+        let burger1 = new Burger('새우버거', 5000, 'big')
+        let burger2 = new Burger('불고기버거', 4500, 'regular')
+        let burger3 = new Burger('쥬니어불고기버거', 3500, 'small')
+        let burger4 = new Burger('치즈버거', 5500, 'regular')
+        let burger5 = new Burger('스테이크버거', 7000, 'big')
+        let burger6 = new Burger('치킨버거', 5500, 'regular')
+        let burger7 = new Burger('야채버거', 4500, 'regular')
+        let burger8 = new Burger('쥬니어새우버거', 3000, 'small')
+        //03. burgers 배열
+        let burgers = [burger1, burger2, burger3, burger4, burger5, burger6, burger7, burger8,]
+        console.log(burgers);
+        //04. regular 인 햄버거만 새로운 배열로 만드세요
+        // let result1 = burgers.filter(function(burger){
+        //     return burger.size === 'regular';
+        // })
+        let result1 = burgers.filter(burger=> burger.size === 'regular')
+        console.log(result1)
+
+
+        let result2 = burgers.filter(function(burger){
+            return burger.price > 5000;
+        })
+        console.log(result2);
+
+
+        let result3 = burgers.find(function(burger){
+            return burger.name === '스테이크버거'
+        })
+        console.log(result3);
+
+
+        //이름만 새로운 배열로 만들어라 
+        let burgerNames = burgers.map(function(burger){
+            return burger.name;
+        })
+        console.log(burgerNames);
+
+        console.log(burgers[0].name)
+        
+    </script>
+</body>
+</html>
