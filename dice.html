@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function dice(){
+            //1~6까지 숫자가 랜덤으로 반환됨
+            return Math.floor(Math.random()*6)+1;
+        }
+        //주사위 출력
+        function printDice(name,dice){
+            console.log(`${name}의 주사위는 ${dice} 입니다.`);
+        }
+        //결과출력
+        function printVictory(name){
+            console.log(`${name}의 승리입니다.`);
+        }
+        //비겼을때 출력
+        function draw(){
+            console.log('비겼습니다.');
+        }
+        function gameGo(){
+            const computer = '컴퓨터';
+            const person = '사람';
+            let com_dice;
+            let per_dice;
+            com_dice = dice();
+            printDice(computer,com_dice);
+            per_dice = dice();
+            printDice(person,per_dice);
+            if(com_dice === per_dice){
+                draw();
+            }else if(com_dice > per_dice){
+                printVictory(computer);
+            }else if (com_dice < per_dice){
+                printVictory(person);
+            }
+        }
+        gameGo();
+    </script>
+</body>
+</html>

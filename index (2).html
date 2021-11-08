@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let 주사위 = [1,2,3,4,5,6];
+        let 컴퓨터값 = 주사위[Math.floor(Math.random()*6)];
+        let 유저값 = 주사위[Math.floor(Math.random()*6)];
+        console.log(`컴퓨터의 주사위는 ${컴퓨터값} 입니다.`)
+        console.log(`유저의 주사위는 ${유저값} 입니다.`)
+        if(컴퓨터값 > 유저값){
+            console.log('컴퓨터의 승리입니다.')
+        }else if(컴퓨터값 < 유저값){
+            console.log('유저의 승리입니다.')
+        }else if(컴퓨터값 === 유저값){
+            console.log('비겼습니다.')
+        }
+    </script>
+</body>
+</html>
