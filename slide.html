@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * { margin:0; padding:0; box-sizing: border-box;}
+        #wrap {
+            width: 600px;
+            height: 400px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            overflow: hidden;
+        }
+        #slides {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            transition: 0.5s;
+        }
+        .slide {
+            position: absolute;
+            top: 0
+        }
+        #indi {
+            position: absolute;
+            left: 50%;
+            bottom: 20px;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+        }
+        #indi span {
+            width: 16px;
+            height: 16px;
+            background-color: coral;
+            border-radius: 50%;
+            margin: 0 6px;
+            font-size: 0;
+            cursor: pointer;
+        }
+        #nav {
+            position: absolute;
+            top: 50%;
+            height: 60px;
+            width: 100%;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 16px;
+        }
+        #nav a {
+            width: 60px;
+            height: 60px;
+            background-color: cornflowerblue;
+            border-radius: 50%;
+            color: #fff;
+            text-align: center;
+            line-height: 60px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div id="slides">
+            <div class="slide"><img src="images/img_lights1.jpg" alt=""></div>
+            <div class="slide"><img src="images/img_lights2.jpg" alt=""></div>
+            <div class="slide"><img src="images/img_lights3.jpg" alt=""></div>
+            <div class="slide"><img src="images/img_lights4.jpg" alt=""></div>
+            <div class="slide"><img src="images/img_lights3.jpg" alt=""></div>
+        </div>
+        <div id="indi"></div>
+        <div id="nav">
+            <a href="#" id="prev">이전</a>
+            <a href="#" id="next">다음</a>
+        </div>
+    </div>
+    <script>
+        const slides = document.querySelector('#slides');
+        const slidesImgs = document.querySelectorAll('.slide');
+        const indiDiv = document.querySelector('#indi');
+        const prev = document.querySelector('#prev');
+        const next = document.querySelector('#next');
+        let indistr = "";
+        let current = 0;
+        let timer;
+
+        slidesImgs.forEach( (img,index) => {
+            img.style.left=index*100+'%' 
+            indistr = indistr+`<span>${index}</span>`
+        });
+        indiDiv.innerHTML = indistr;
+
+        indiDiv.addEventListener('click',function(e){
+            let targetNum = Number(e.target.innerHTML);
+            moveDiv(targetNum);
+        });
+        //이전으로 이동
+        prev.addEventListener('click',function(){
+            let prevNum = current == 0? slidesImgs.length-1: current - 1;
+            moveDiv(prevNum);
+            console.log(prevNum)
+        })
+        prev.addEventListener('mouseenter',function(){
+            stopIt();
+        })
+        prev.addEventListener('mouseleave',function(){
+            startIt();
+        })
+
+        //다음으로 이동
+        next.addEventListener('click',function(){
+            let nextNum = current == slidesImgs.length-1? 0: current + 1;
+            moveDiv(nextNum)
+            console.log(nextNum)
+        })
+        next.addEventListener('mouseenter',function(){
+            stopIt();
+        })
+        next.addEventListener('mouseleave',function(){
+            startIt();
+        })
+        //이동하는 함수
+        function moveDiv(num){
+            slides.style.left = -(num*100) + '%';
+            current = num;
+            console.log(current);
+        }
+        //자동으로 넘어가는 함수
+        function startIt(){
+            timer = setInterval(()=>{
+                let outoNum = current == slidesImgs.length-1 ? 0 : current+1
+                moveDiv(outoNum);
+            },1000)
+        }
+        //자동 이미지 전환 멈춤함수
+        function stopIt(){
+            clearInterval(timer);
+        }
+        startIt()
+
+    </script>
+</body>
+</html>
